@@ -174,7 +174,7 @@ LogRecord* LogRecord_create(LogRecord* self, PyObject* name, PyObject* msg, PyOb
 #if PY_VERSION_HEX < 0x030d0000
     self->msecs = _PyTime_AsMilliseconds(ctime, _PyTime_ROUND_CEILING);
 #else
-    self->msecs = 0;
+    self->msecs = (ctime + 1000000 - 1) / 1000000;
 #endif
     self->relativeCreated = _PyFloat_FromPyTime((ctime - startTime) * 1000);    
     self->thread = PyThread_get_thread_ident(); // Only supported in Python 3.7+, if big demand for 3.6 patch this out for the old API.
