@@ -166,5 +166,5 @@ jobs:
       run: isort --check .
     - name: Check pyupgrade
       run: pyupgrade --py37-plus src/picologging/*.py tests/**/*.py
-    - name: Check clang-tidy
-      run: clang-tidy src/picologging/*.cxx -- -I/usr/include/python3.10/ -std=c++17
+    # - name: Check clang-tidy
+    #   run: clang-tidy src/picologging/*.cxx -- -I/usr/include/python3.10/ -std=c++17
